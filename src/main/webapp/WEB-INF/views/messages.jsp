@@ -1,0 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="pageTitle" value="Conversation"/><%@ include file="_top.jsp" %>
+<section class="page-heading"><div><p class="eyebrow">KEEP THE CONVERSATION GOING</p><h1>Application messages</h1><p>Messages for this application stay visible to its job seeker and employer.</p></div><a class="button secondary" href="<c:out value='${pageContext.request.contextPath}'/>/dashboard">← Dashboard</a></section>
+<section class="panel conversation"><c:choose><c:when test="${empty messages}"><div class="empty-state compact"><span class="empty-icon">✉</span><h2>Start the conversation</h2><p>Send a note about the application or next steps.</p></div></c:when><c:otherwise><div class="message-list"><c:forEach items="${messages}" var="message"><article class="message <c:if test='${message.senderId eq currentUser.id}'>mine</c:if>"><div class="message-head"><strong><c:out value="${message.senderName}"/></strong><time><c:out value="${message.sentAt}"/></time></div><p><c:out value="${message.body}"/></p></article></c:forEach></div></c:otherwise></c:choose>
+  <form method="post" action="<c:out value='${pageContext.request.contextPath}'/>/messages" class="message-compose"><input type="hidden" name="csrfToken" value="<c:out value='${sessionScope.csrfToken}'/>"><input type="hidden" name="applicationId" value="<c:out value='${applicationId}'/>"><label class="sr-only" for="body">Message</label><textarea id="body" name="body" required maxlength="2000" rows="2" placeholder="Write a message..."></textarea><button class="button primary" type="submit">Send</button></form>
+</section>
+<%@ include file="_bottom.jsp" %>

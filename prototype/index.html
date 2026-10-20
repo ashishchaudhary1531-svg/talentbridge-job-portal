@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta name="description" content="TalentBridge connects thoughtful teams with people ready for their next opportunity." />
+    <title>TalentBridge — Find work that moves you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-action="home" aria-label="TalentBridge home">
+          <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 12.5h26M20 12.5v20M12.5 7v11a7.5 7.5 0 0 0 15 0V7" /></svg></span>
+          <span>talent<span class="brand-light">bridge</span></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="side-nav" id="side-nav" aria-label="Main navigation"></nav>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">✦</div>
+            <strong>Need a little help?</strong>
+            <p>Our team is here to make your next step easier.</p>
+            <button class="text-button" data-action="help">Visit help center <span>↗</span></button>
+          </div>
+          <div class="sidebar-profile" id="sidebar-profile"></div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" data-action="menu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumb"><span>Workspace</span><i>/</i><strong id="crumb-current">Discover jobs</strong></div>
+          <div class="topbar-actions">
+            <div class="role-wrap">
+              <span class="role-caption">DEMO AS</span>
+              <select id="role-switcher" aria-label="Switch demo role">
+                <option value="seeker">Job seeker</option>
+                <option value="employer">Employer</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+            <button class="icon-button notification-button" data-action="notifications" aria-label="Notifications">♧<span class="notification-dot"></span></button>
+            <button class="top-avatar" data-action="profile" id="top-avatar" aria-label="Open profile"></button>
+          </div>
+        </header>
+        <div class="demo-banner"><span class="demo-pulse"></span><span><strong>Demo workspace</strong> · Your changes are saved in this browser.</span><button data-action="reset-demo">Reset demo data</button></div>
+        <section class="page-content" id="page-content" aria-live="polite"></section>
+      </main>
+    </div>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
